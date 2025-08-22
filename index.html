@@ -1,166 +1,159 @@
-```tsx
-import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
-import { Instagram } from "lucide-react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tech Innovators Club</title>
 
-export default function ClubSite() {
-  return (
-    <div className="bg-gradient-to-b from-blue-900 via-blue-700 to-red-700 min-h-screen text-white font-sans">
-      {/* Header */}
-      <header className="p-6 flex justify-between items-center">
-        <motion.h1
-          initial={{ x: -50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="text-3xl font-extrabold tracking-wider text-white drop-shadow-lg"
-        >
-          Tech Innovators Club
-        </motion.h1>
-        <motion.div
-          initial={{ x: 50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="flex space-x-4"
-        >
-          <a
-            href="#about"
-            className="hover:text-yellow-300 transition-colors duration-300 font-semibold"
-          >
-            About
-          </a>
-          <a
-            href="#contact"
-            className="hover:text-yellow-300 transition-colors duration-300 font-semibold"
-          >
-            Contact
-          </a>
-        </motion.div>
-      </header>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 
-      {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-center py-24 px-6">
-        <motion.h2
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="text-5xl font-extrabold text-white drop-shadow-xl"
-        >
-          Empowering Communities with Technology
-        </motion.h2>
-        <motion.p
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.3, duration: 1 }}
-          className="mt-6 text-lg max-w-2xl text-blue-100"
-        >
-          We are a student-led club dedicated to building impactful tech projects, spreading awareness through marketing, and bringing positive change to our community.
-        </motion.p>
-      </section>
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-      {/* About Section */}
-      <section id="about" className="py-20 px-6 bg-blue-800/60 backdrop-blur-lg">
-        <motion.h3
-          initial={{ y: -20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl font-bold text-center mb-12 text-yellow-300"
-        >
-          About Us
-        </motion.h3>
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="max-w-3xl mx-auto text-center text-lg leading-relaxed"
-        >
-          We are a club where our group of leaders and students collaborate on a technology project to create a positive impact in the community. Our goal is to raise funds through sponsors and launch our project for the benefit of society. Alongside our project, our marketing team spreads awareness using social media to build stronger community support. Through teamwork, skills, and innovation, we strive to make a meaningful difference.
-        </motion.p>
-      </section>
+  <!-- AOS (scroll animations) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
 
-      {/* Team Section */}
-      <section id="team" className="py-20 px-6">
-        <motion.h3
-          initial={{ y: -20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl font-bold text-center mb-12 text-yellow-300"
-        >
-          Our Team
-        </motion.h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <Card className="bg-blue-900/70 shadow-xl rounded-2xl border border-red-500">
-            <CardContent className="p-6 text-center">
-              <h4 className="text-2xl font-bold">Lohithaksh</h4>
-              <p className="text-blue-200">Leader</p>
-            </CardContent>
-          </Card>
-          <Card className="bg-blue-900/70 shadow-xl rounded-2xl border border-red-500">
-            <CardContent className="p-6 text-center">
-              <h4 className="text-2xl font-bold">Dhairya</h4>
-              <p className="text-blue-200">Leader</p>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #0a0a0a;
+      color: white;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: linear-gradient(90deg, #004aad, #ff3131);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+    nav a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffeb3b;
+    }
+    section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .leaders, .sponsors {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .card {
+      background: #111;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    footer {
+      background: #111;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      margin-top: 1rem;
+      border-radius: 2rem;
+      background: linear-gradient(90deg, #004aad, #ff3131);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.3s;
+    }
+    .btn:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tech Innovators Club</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#leaders">Leaders</a>
+      <a href="#sponsors">Sponsors</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-      {/* Sponsors */}
-      <section id="sponsors" className="py-20 px-6 bg-gradient-to-r from-red-800 via-blue-900 to-red-800">
-        <motion.h3
-          initial={{ y: -20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl font-bold text-center mb-12 text-yellow-300"
-        >
-          Sponsored By
-        </motion.h3>
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="flex justify-center"
-        >
-          <Card className="bg-blue-900/80 rounded-2xl shadow-xl border border-yellow-500 p-8">
-            <CardContent className="text-center text-xl font-bold text-white">
-              Biryani World, Jai Bhavani & Maya
-            </CardContent>
-          </Card>
-        </motion.div>
-      </section>
+  <section id="home" data-aos="fade-up">
+    <h2 class="animate__animated animate__fadeInDown">Welcome to Tech Innovators Club</h2>
+    <p class="animate__animated animate__fadeInUp animate__delay-1s">
+      Empowering communities through technology and collaboration.
+    </p>
+  </section>
 
-      {/* Contact */}
-      <section id="contact" className="py-20 px-6 bg-blue-900/80">
-        <motion.h3
-          initial={{ y: -20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl font-bold text-center mb-12 text-yellow-300"
-        >
-          Contact Us
-        </motion.h3>
-        <div className="flex flex-col items-center space-y-4">
-          <p className="text-lg">Email: techinnovatorscia@gmail.com</p>
-          <a
-            href="https://instagram.com/tic.ia2025"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center space-x-2 text-lg hover:text-pink-400 transition-colors"
-          >
-            <Instagram />
-            <span>@tic.ia2025</span>
-          </a>
-        </div>
-      </section>
+  <section id="about" data-aos="fade-right">
+    <h2>About Us</h2>
+    <p style="max-width: 800px; margin: auto; line-height: 1.8;">
+      The Tech Innovators Club is a collaborative student organization where a group of leaders and members work together on technology-driven projects to create meaningful impact in the community. 
+      Our mission is not only to develop innovative solutions but also to bring them to life through collective effort, fundraising, and partnerships.  
+      <br><br>
+      Alongside our project teams, we have a marketing team dedicated to spreading awareness, engaging with the community, and gathering support through social media outreach.  
+      With strong collaboration and the generous support of our sponsors, we aim to use our technical skills to address real-world challenges and make a difference.  
+    </p>
+  </section>
 
-      {/* Footer */}
-      <footer className="py-6 text-center text-blue-200 bg-blue-950/90">
-        <p>© {new Date().getFullYear()} Tech Innovators Club. All rights reserved.</p>
-      </footer>
+  <section id="leaders" data-aos="fade-left">
+    <h2>Our Leaders</h2>
+    <div class="leaders">
+      <div class="card">
+        <h3>Lohithaksh</h3>
+      </div>
+      <div class="card">
+        <h3>Dhairya</h3>
+      </div>
     </div>
-  );
-}
-```
+  </section>
+
+  <section id="sponsors" data-aos="zoom-in">
+    <h2>Our Sponsor</h2>
+    <div class="sponsors">
+      <div class="card">
+        <h3>Biryani World Jai Bhavani and Maya</h3>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" data-aos="fade-up">
+    <h2>Connect With Us</h2>
+    <p>Follow us on Instagram:</p>
+    <a class="btn" href="https://instagram.com/tic.ia2025" target="_blank">@tic.ia2025</a>
+  </section>
+
+  <footer>
+    <p>© 2025 Tech Innovators Club. All rights reserved.</p>
+  </footer>
+
+  <!-- AOS + Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1200 });
+  </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+```tsx
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Instagram } from "lucide-react";
+
+export default function ClubSite() {
+  return (
+    <div className="bg-gradient-to-b from-blue-900 via-blue-700 to-red-700 min-h-screen text-white font-sans">
+      {/* Header */}
+      <header className="p-6 flex justify-between items-center">
+        <motion.h1
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="text-3xl font-extrabold tracking-wider text-white drop-shadow-lg"
+        >
+          Tech Innovators Club
+        </motion.h1>
+        <motion.div
+          initial={{ x: 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="flex space-x-4"
+        >
+          <a
+            href="#about"
+            className="hover:text-yellow-300 transition-colors duration-300 font-semibold"
+          >
+            About
+          </a>
+          <a
+            href="#contact"
+            className="hover:text-yellow-300 transition-colors duration-300 font-semibold"
+          >
+            Contact
+          </a>
+        </motion.div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center text-center py-24 px-6">
+        <motion.h2
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="text-5xl font-extrabold text-white drop-shadow-xl"
+        >
+          Empowering Communities with Technology
+        </motion.h2>
+        <motion.p
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.3, duration: 1 }}
+          className="mt-6 text-lg max-w-2xl text-blue-100"
+        >
+          We are a student-led club dedicated to building impactful tech projects, spreading awareness through marketing, and bringing positive change to our community.
+        </motion.p>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 px-6 bg-blue-800/60 backdrop-blur-lg">
+        <motion.h3
+          initial={{ y: -20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl font-bold text-center mb-12 text-yellow-300"
+        >
+          About Us
+        </motion.h3>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="max-w-3xl mx-auto text-center text-lg leading-relaxed"
+        >
+          We are a club where our group of leaders and students collaborate on a technology project to create a positive impact in the community. Our goal is to raise funds through sponsors and launch our project for the benefit of society. Alongside our project, our marketing team spreads awareness using social media to build stronger community support. Through teamwork, skills, and innovation, we strive to make a meaningful difference.
+        </motion.p>
+      </section>
+
+      {/* Team Section */}
+      <section id="team" className="py-20 px-6">
+        <motion.h3
+          initial={{ y: -20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl font-bold text-center mb-12 text-yellow-300"
+        >
+          Our Team
+        </motion.h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <Card className="bg-blue-900/70 shadow-xl rounded-2xl border border-red-500">
+            <CardContent className="p-6 text-center">
+              <h4 className="text-2xl font-bold">Lohithaksh</h4>
+              <p className="text-blue-200">Leader</p>
+            </CardContent>
+          </Card>
+          <Card className="bg-blue-900/70 shadow-xl rounded-2xl border border-red-500">
+            <CardContent className="p-6 text-center">
+              <h4 className="text-2xl font-bold">Dhairya</h4>
+              <p className="text-blue-200">Leader</p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Sponsors */}
+      <section id="sponsors" className="py-20 px-6 bg-gradient-to-r from-red-800 via-blue-900 to-red-800">
+        <motion.h3
+          initial={{ y: -20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl font-bold text-center mb-12 text-yellow-300"
+        >
+          Sponsored By
+        </motion.h3>
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="flex justify-center"
+        >
+          <Card className="bg-blue-900/80 rounded-2xl shadow-xl border border-yellow-500 p-8">
+            <CardContent className="text-center text-xl font-bold text-white">
+              Biryani World, Jai Bhavani & Maya
+            </CardContent>
+          </Card>
+        </motion.div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="py-20 px-6 bg-blue-900/80">
+        <motion.h3
+          initial={{ y: -20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl font-bold text-center mb-12 text-yellow-300"
+        >
+          Contact Us
+        </motion.h3>
+        <div className="flex flex-col items-center space-y-4">
+          <p className="text-lg">Email: techinnovatorscia@gmail.com</p>
+          <a
+            href="https://instagram.com/tic.ia2025"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-2 text-lg hover:text-pink-400 transition-colors"
+          >
+            <Instagram />
+            <span>@tic.ia2025</span>
+          </a>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-6 text-center text-blue-200 bg-blue-950/90">
+        <p>© {new Date().getFullYear()} Tech Innovators Club. All rights reserved.</p>
+      </footer>
+    </div>
+  );
+}
+```

@@ -18,12 +18,14 @@
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background: #0a0a0a;
+      background: #0d0d0d;
       color: white;
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
     header {
-      background: linear-gradient(90deg, #004aad, #ff3131);
+      background: rgba(10,10,10,0.9);
+      backdrop-filter: blur(8px);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -31,24 +33,55 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      border-bottom: 2px solid #ff3131;
     }
     header h1 {
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       font-weight: 800;
+      background: linear-gradient(90deg,#004aad,#ff3131);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     nav a {
       margin-left: 1rem;
       text-decoration: none;
       color: white;
       font-weight: 600;
-      transition: color 0.3s;
+      transition: all 0.3s;
     }
     nav a:hover {
-      color: #ffeb3b;
+      color: #ff3131;
+      text-shadow: 0 0 8px #ff3131;
     }
     section {
-      padding: 4rem 2rem;
+      padding: 6rem 2rem;
       text-align: center;
+    }
+    .hero {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(-45deg, #0d0d0d, #111122, #220011, #0d0d0d);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+    }
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+    .hero h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      text-shadow: 0 0 15px rgba(0,74,173,0.8);
+    }
+    .typing {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      color: #ff3131;
+      font-weight: 600;
     }
     .leaders, .sponsors {
       display: flex;
@@ -58,40 +91,45 @@
       margin-top: 2rem;
     }
     .card {
-      background: #111;
+      background: #141414;
       border-radius: 1rem;
       padding: 2rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-      transition: transform 0.3s;
+      min-width: 220px;
+      box-shadow: 0 0 15px rgba(255,49,49,0.3);
+      transition: all 0.4s ease;
     }
     .card:hover {
-      transform: scale(1.05);
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 0 25px rgba(0,74,173,0.8), 0 0 25px rgba(255,49,49,0.8);
     }
     footer {
       background: #111;
       padding: 2rem;
       text-align: center;
       font-size: 0.9rem;
+      border-top: 2px solid #004aad;
     }
     .btn {
       display: inline-block;
-      padding: 0.8rem 1.5rem;
-      margin-top: 1rem;
-      border-radius: 2rem;
+      padding: 0.9rem 2rem;
+      margin-top: 1.5rem;
+      border-radius: 3rem;
       background: linear-gradient(90deg, #004aad, #ff3131);
       color: white;
       text-decoration: none;
-      font-weight: 600;
-      transition: opacity 0.3s;
+      font-weight: 700;
+      transition: all 0.3s;
+      box-shadow: 0 0 12px rgba(255,49,49,0.6);
     }
     .btn:hover {
-      opacity: 0.8;
+      opacity: 0.9;
+      box-shadow: 0 0 20px rgba(0,74,173,0.8), 0 0 20px rgba(255,49,49,0.8);
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Tech Innovators Club</h1>
+    <h1>TIC</h1>
     <nav>
       <a href="#home">Home</a>
       <a href="#about">About</a>
@@ -101,59 +139,84 @@
     </nav>
   </header>
 
-  <section id="home" data-aos="fade-up">
-    <h2 class="animate__animated animate__fadeInDown">Welcome to Tech Innovators Club</h2>
-    <p class="animate__animated animate__fadeInUp animate__delay-1s">
-      Empowering communities through technology and collaboration.
-    </p>
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <h2 class="animate__animated animate__fadeInDown">Tech Innovators Club</h2>
+    <div class="typing" id="typing"></div>
   </section>
 
+  <!-- About -->
   <section id="about" data-aos="fade-right">
     <h2>About Us</h2>
     <p style="max-width: 800px; margin: auto; line-height: 1.8;">
-      The Tech Innovators Club is a collaborative student organization where a group of leaders and members work together on technology-driven projects to create meaningful impact in the community. 
-      Our mission is not only to develop innovative solutions but also to bring them to life through collective effort, fundraising, and partnerships.  
+      The Tech Innovators Club is a student-driven organization where leaders and members collaborate on 
+      <span style="color:#004aad;font-weight:700;">technology-powered projects</span> that make real-world impact.  
       <br><br>
-      Alongside our project teams, we have a marketing team dedicated to spreading awareness, engaging with the community, and gathering support through social media outreach.  
-      With strong collaboration and the generous support of our sponsors, we aim to use our technical skills to address real-world challenges and make a difference.  
+      We don’t just imagine—we build, innovate, and bring ideas to life. With project teams, marketing outreach, and strong sponsors, TIC empowers students to use 
+      <span style="color:#ff3131;font-weight:700;">tech for change</span>.
     </p>
   </section>
 
+  <!-- Leaders -->
   <section id="leaders" data-aos="fade-left">
     <h2>Our Leaders</h2>
     <div class="leaders">
       <div class="card">
         <h3>Lohithaksh</h3>
+        <p>Visionary Leader</p>
       </div>
       <div class="card">
         <h3>Dhairya</h3>
+        <p>Strategic Leader</p>
       </div>
     </div>
   </section>
 
+  <!-- Sponsors -->
   <section id="sponsors" data-aos="zoom-in">
     <h2>Our Sponsor</h2>
     <div class="sponsors">
       <div class="card">
         <h3>Biryani World Jai Bhavani and Maya</h3>
+        <p>Fueling Innovation Through Support</p>
       </div>
     </div>
   </section>
 
+  <!-- Contact -->
   <section id="contact" data-aos="fade-up">
     <h2>Connect With Us</h2>
-    <p>Follow us on Instagram:</p>
+    <p>Follow us on Instagram</p>
     <a class="btn" href="https://instagram.com/tic.ia2025" target="_blank">@tic.ia2025</a>
   </section>
 
   <footer>
-    <p>© 2025 Tech Innovators Club. All rights reserved.</p>
+    <p>© 2025 Tech Innovators Club | Innovate • Build • Inspire</p>
   </footer>
 
   <!-- AOS + Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
     AOS.init({ duration: 1200 });
+
+    // Typing effect
+    const words = ["Innovate • Build • Inspire", "Future Starts Here", "Tech for Change"];
+    let i = 0, j = 0, currentWord = "", isDeleting = false;
+    const typingEl = document.getElementById("typing");
+
+    function type() {
+      currentWord = words[i];
+      if (isDeleting) {
+        typingEl.textContent = currentWord.substring(0, j--);
+        if (j < 0) { isDeleting = false; i = (i+1)%words.length; }
+      } else {
+        typingEl.textContent = currentWord.substring(0, j++);
+        if (j > currentWord.length) { isDeleting = true; setTimeout(type, 1000); return; }
+      }
+      setTimeout(type, isDeleting ? 80 : 120);
+    }
+    type();
   </script>
 </body>
 </html>
+
